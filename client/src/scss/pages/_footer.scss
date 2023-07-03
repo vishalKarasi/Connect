@@ -1,0 +1,20 @@
+.footer {
+  @extend .flex;
+  flex-direction: column;
+
+  .links {
+    @extend .flex;
+    gap: 1rem;
+
+    .line {
+      background-color: $clr-primary;
+      width: 0.1rem;
+      align-self: stretch;
+    }
+  }
+
+  .copyright {
+    @extend .flex;
+    gap: 0.5rem;
+  }
+}

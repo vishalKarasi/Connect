@@ -3,8 +3,10 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./controllers/*"],
+      "@middlewares/*": ["./middlewares/*"],
       "@models/*": ["./models/*"],
       "@routes/*": ["./routes/*"],
+      "@uploads/*": ["./uploads/*"],
     }
   },
   "exclude": ["node_modules"]

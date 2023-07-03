@@ -1,7 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import reactRefresh from "@vitejs/plugin-react-refresh";
+import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [reactRefresh()],
+  resolve: {
+    alias: {
+      "@app": path.resolve(__dirname, "src/app"),
+      "@assets": path.resolve(__dirname, "src/assets"),
+      "@components": path.resolve(__dirname, "src/components"),
+      "@pages": path.resolve(__dirname, "src/pages"),
+      "@styles": path.resolve(__dirname, "src/styles"),
+    },
+  },
+  build: {
+    rollupOptions: {
+      external: /^react/,
+    },
+  },
+  jsconfig: {
+    configFile: path.resolve(__dirname, "jsconfig.json"),
+  },
+});
