@@ -4,11 +4,11 @@ $clr-container: hsl(0, 0%, 20%);
 $clr-primary: hsl(348, 83%, 47%);
 $clr-button: hsl(348, 100%, 75%);
 
-$logo-font: 700 1.6rem / 1 ubuntu;
-$head-font: 700 1.45rem/ 1 poppins;
+$logo-font: 700 1.5rem / 1 ubuntu;
+$head-font: 700 1.4rem/ 1 poppins;
 $sub-head-font: 500 1.2rem / 1.2 roboto;
 $link-font: 500 1.1rem / 1.4 ubuntu;
-$body-font: 400 clamp(15px, 1.25vw + 10px, 22px) / 1.5 open-sans;
+$body-font: 400 clamp(15px, 1.25vw + 10px, 20px) / 1.5 open-sans;
 
 @font-face {
   font-family: "open-sans";

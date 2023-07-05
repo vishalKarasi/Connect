@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loginSlice from "./loginSlice";
-import pokemonSlice from "./pokemonSlice";
+import authSlice from "./authSlice";
+import userSlice from "./userSlice";
+import postSlice from "./postSlice";
 
 export const store = configureStore({
   reducer: {
-    login: loginSlice,
-    pokemon: pokemonSlice,
+    auth: authSlice,
+    user: userSlice,
+    post: postSlice,
   },
 });

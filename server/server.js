@@ -3,19 +3,19 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
-import helmet from helmet;
+import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
-import { errorHandler } from "@middlewares/errorHandler";
+import { errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 dotenv.config();
 
 // import routes
-import authRoute from '@routes/authRoute.js'
-import userRoute from '@routes/userRoute.js'
-import postRoute from '@routes/postRoute.js'
+import authRoute from "./routes/authRoute.js";
+import userRoute from "./routes/userRoute.js";
+import postRoute from "./routes/postRoute.js";
 
 // middlewares
 app.use(express.json());

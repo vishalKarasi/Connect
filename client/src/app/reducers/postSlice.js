@@ -1,16 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
-  isLogin: false,
-  token: "",
+  POST: [],
   status: "",
 };
 
-export const loginSlice = createSlice({
-  name: "login",
+export const postSlice = createSlice({
+  name: "post",
   initialState,
   reducers: {},
   extraReducers: {},
 });
 
-export default loginSlice.reducer;
+export default postSlice.reducer;

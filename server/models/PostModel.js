@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 const PostSchema = mongoose.Schema(
   {
@@ -14,6 +14,4 @@ const PostSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Post = mongoose.Model("Post", PostSchema);
-
-export default Post;
+export const Post = mongoose.model("Post", PostSchema);

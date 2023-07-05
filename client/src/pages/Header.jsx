@@ -1,33 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "@assets/images/logo.webp";
-import NavLinks from "@components/NavLinks";
 import { Link } from "react-router-dom";
-import { FaSignInAlt } from "react-icons/fa";
+import {
+  FaBell,
+  FaComment,
+  FaEnvelope,
+  FaInfoCircle,
+  FaMoon,
+  FaSearch,
+  FaSignInAlt,
+  FaTimes,
+} from "react-icons/fa";
 
 function Header() {
-  const NAVLINK = [
-    { path: "/pokemon", label: "Pokelist" },
-    { path: "/item", label: "Itemlist" },
-    { path: "/compare", label: "Compare" },
-    { path: "/mylist", label: "Mylist" },
-    { path: "/about", label: "About" },
-  ];
+  const { searchTerm, setSearchTerm } = useState("");
+
+  const handleSearch = () => {
+    console.log(searchTerm);
+  };
 
   return (
     <header className="header">
-      <Link to="/" className="logo">
-        <img src={logo} alt="" />
-        <div className="label">Pokedex</div>
-      </Link>
-      <ul className="navbar">
-        {NAVLINK.map((link, index) => (
-          <NavLinks link={link} key={index} />
-        ))}
-      </ul>
+      <div className="left">
+        <Link to="/" className="logo">
+          <img src={logo} alt="" />
+          <div className="label">Connect</div>
+        </Link>
+        <div className="searchBar">
+          <button type="submit" onClick={() => handleSearch()}>
+            <FaSearch />
+          </button>
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSearch();
+              }
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => {
+              setSearchTerm("");
+            }}
+          >
+            <FaTimes />
+          </button>
+        </div>
+      </div>
 
-      <Link to="/login" className="login">
-        <FaSignInAlt /> <div className="label">Login</div>
-      </Link>
+      <div className="right">
+        <button>
+          <FaMoon />
+        </button>
+        <button>
+          <FaComment />
+        </button>
+        <button>
+          <FaBell />
+        </button>
+        <button>
+          <FaInfoCircle />
+        </button>
+        <Link to="/login" className="login">
+          <FaSignInAlt />
+        </Link>
+      </div>
     </header>
   );
 }

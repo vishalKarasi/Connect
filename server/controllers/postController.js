@@ -1,5 +1,5 @@
-import { User } from "@models/UserModel";
-import Post from "@models/postModel";
+import { User } from "../models/UserModel.js";
+import { Post } from "../models/PostModel.js";
 
 // createPost
 export const createPost = async (req, res, next) => {

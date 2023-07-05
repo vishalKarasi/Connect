@@ -1,5 +1,5 @@
 const requestCounts = {};
-const requestLimiter = (req, res, next) => {
+export const requestLimiter = (req, res, next) => {
   const ip = req.ip;
   const currentTime = Date.now();
   for (let key in requestCounts) {

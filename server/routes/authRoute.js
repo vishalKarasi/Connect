@@ -1,10 +1,11 @@
 import express from "express";
-import { register, login } from "@controllers/authController.js";
-import multer from "@middlewares/multer.js";
+import { register, login, refresh } from "../controllers/authController.js";
+import { parserImg } from "../middlewares/multer.js";
 
 const router = express.Router();
 
-router.get("/register", multer.single("profilePic"), register);
+router.post("/register", parserImg.single("profilePic"), register);
 router.get("/login", login);
+router.get("/refresh", refresh);
 
 export default router;

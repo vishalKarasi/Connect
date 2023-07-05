@@ -10,7 +10,7 @@ function Footer() {
         <Link to="/policy">Policy</Link>
       </div>
       <div className="copyright">
-        <h2>Pokedex</h2>
+        <h2>Connect</h2>
         <i> ©2023 Movie app. All rights reserved.</i>
       </div>
     </footer>

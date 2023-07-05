@@ -2,31 +2,60 @@
   background-color: $clr-container;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 1.5em;
   align-items: center;
+  padding: 0.5rem 1.5em;
 
-  .logo {
-    @extend .flex;
-    gap: 0.5em;
-
-    img {
-      width: 1.6rem;
-      height: 1.6rem;
-    }
-
-    .label {
-      font: $logo-font;
-    }
-  }
-  .navbar {
+  .left {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     gap: 1rem;
+    .logo {
+      @extend .flex;
+      gap: 0.25em;
+
+      img {
+        width: 2em;
+        height: 2em;
+      }
+
+      .label {
+        font: $logo-font;
+      }
+    }
+
+    .searchBar {
+      @extend .flex;
+      background-color: $clr-background;
+      border-radius: 0.25em;
+
+      button {
+        @extend .flex;
+        background-color: transparent;
+        padding: 1em;
+      }
+
+      input {
+        width: 20ch;
+        font-size: 0.8em;
+        padding: 0.25em;
+        background-color: transparent;
+      }
+    }
   }
-  .login {
-    @extend .flex;
-    gap: 0.25rem;
-    font: $link-font;
+
+  .right {
+    display: flex;
+    gap: 1em;
+
+    & > * {
+      @extend .flex;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+@media (340px <= width < 720px) {
+  .header {
+    flex-direction: column;
   }
 }
