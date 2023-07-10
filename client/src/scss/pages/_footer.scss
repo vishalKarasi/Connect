@@ -1,13 +1,15 @@
 .footer {
   @extend .flex;
   flex-direction: column;
+  background-color: var(--clr-container);
+  padding: 0.5rem;
 
   .links {
     @extend .flex;
     gap: 1rem;
 
     .line {
-      background-color: $clr-primary;
+      background-color: var(--clr-primary);
       width: 0.1rem;
       align-self: stretch;
     }

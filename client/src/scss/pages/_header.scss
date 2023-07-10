@@ -1,5 +1,5 @@
 .header {
-  background-color: $clr-container;
+  background-color: var(--clr-container);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,9 +12,10 @@
       @extend .flex;
       gap: 0.25em;
 
-      img {
+      svg {
         width: 2em;
         height: 2em;
+        fill: var(--clr-primary);
       }
 
       .label {
@@ -24,7 +25,7 @@
 
     .searchBar {
       @extend .flex;
-      background-color: $clr-background;
+      background-color: var(--clr-button);
       border-radius: 0.25em;
 
       button {
@@ -48,8 +49,9 @@
 
     & > * {
       @extend .flex;
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1rem;
+      height: 1rem;
+      background-color: transparent;
     }
   }
 }

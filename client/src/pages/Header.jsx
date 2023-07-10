@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import logo from "@assets/images/logo.webp";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   FaBell,
   FaComment,
-  FaEnvelope,
+  FaInfinity,
   FaInfoCircle,
   FaMoon,
   FaSearch,
   FaSignInAlt,
   FaTimes,
 } from "react-icons/fa";
+import { toggleMode } from "@app/reducers/uiSlice";
 
 function Header() {
+  const dispatch = useDispatch();
+  const { visible } = useSelector((state) => state.ui);
   const { searchTerm, setSearchTerm } = useState("");
 
   const handleSearch = () => {
@@ -23,7 +26,7 @@ function Header() {
     <header className="header">
       <div className="left">
         <Link to="/" className="logo">
-          <img src={logo} alt="" />
+          <FaInfinity />
           <div className="label">Connect</div>
         </Link>
         <div className="searchBar">
@@ -53,7 +56,11 @@ function Header() {
       </div>
 
       <div className="right">
-        <button>
+        <button
+          onClick={() => {
+            dispatch(toggleMode());
+          }}
+        >
           <FaMoon />
         </button>
         <button>

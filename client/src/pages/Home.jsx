@@ -1,10 +1,20 @@
 import React from "react";
+import Friends from "@widgets/Friends";
+import Posts from "@widgets/Posts";
+import Profile from "@widgets/Profile";
 
 function Home() {
   return (
-    <main>
-      <h1>Home</h1>
-      <div>this is Home page</div>
+    <main className="home">
+      <section className="leftSecction">
+        <Profile />
+      </section>
+      <section className="middleSection">
+        <Posts />
+      </section>
+      <section className="rightSection">
+        <Friends />
+      </section>
     </main>
   );
 }

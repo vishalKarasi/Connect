@@ -6,7 +6,7 @@
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
-      "@scss/*": ["src/scss/*"]
+      "@widgets/*": ["src/widgets/*"]
     }
   },
   "include": ["src/**/*"],

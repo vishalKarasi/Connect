@@ -1,6 +1,7 @@
 @import "./utils";
 @import "./components/components";
 @import "./pages/pages";
+@import "./widgets/widgets";
 *,
 *::after,
 *::before {
@@ -9,21 +10,28 @@
   box-sizing: border-box;
   border: none;
   outline: none;
-  color: $clr-text;
-  background-color: var(--bgColor);
   text-decoration: none;
 }
 
-:root {
-  color-scheme: light dark;
-  scroll-behavior: smooth;
+html {
   font: $body-font;
+  color-scheme: dark light;
+  scroll-behavior: smooth;
 }
 
-body,
+body {
+  font: $body-font;
+  color: var(--clr-font);
+  background-color: var(--clr-background);
+}
+
 input,
 textarea {
-  font: $body-font;
+  background-color: var(--clr-container);
+}
+
+svg {
+  color: var(--clr-font);
 }
 
 #root {
@@ -38,9 +46,9 @@ main {
   flex-grow: 1;
 }
 
-main > * {
-  max-width: 95%;
-  margin: 0.25em auto;
+main {
+  width: 95%;
+  margin: 1em auto;
 }
 
 h1,
@@ -52,12 +60,12 @@ h3 {
 h1 {
   text-align: center;
   font: $head-font;
-  color: $clr-primary;
+  color: var(--clr-primary);
 }
 
 h2 {
   font: $sub-head-font;
-  color: $clr-primary;
+  color: var(--clr-primary);
 }
 
 img {
@@ -71,7 +79,7 @@ svg {
   width: 100%;
   height: 100%;
   &:hover {
-    fill: $clr-primary;
+    fill: var(--clr-primary);
   }
 }
 
@@ -80,6 +88,7 @@ li,
 a {
   cursor: pointer;
   font: $link-font;
+  color: var(--clr-font);
 }
 
 li {
@@ -88,13 +97,13 @@ li {
 
 a {
   &:hover > * {
-    color: $clr-primary;
-    fill: $clr-primary;
+    color: var(--clr-primary);
+    fill: var(--clr-primary);
   }
 
   &.active {
-    color: $clr-primary;
-    border-bottom: 0.25em solid $clr-primary;
+    color: var(--clr-primary);
+    border-bottom: 0.25em solid var(--clr-primary);
     border-radius: 0.25em;
   }
 }
