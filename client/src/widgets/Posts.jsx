@@ -11,6 +11,7 @@ import {
   FaVideo,
 } from "react-icons/fa";
 import profilePic from "@assets/images/pfp.png";
+import ads from "@assets/images/ads.jpg";
 import Button from "@components/Button";
 
 function Posts() {
@@ -68,7 +69,7 @@ function Posts() {
           </p>
         </div>
         <div className="postImg">
-          <img src={profilePic} alt="postImg" />
+          <img src={ads} alt="postImg" />
         </div>
         <div className="bottom">
           <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
@@ -92,7 +93,7 @@ function Posts() {
           </p>
         </div>
         <div className="postImg">
-          <img src={profilePic} alt="postImg" />
+          <img src={ads} alt="postImg" />
         </div>
         <div className="bottom">
           <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
@@ -116,31 +117,7 @@ function Posts() {
           </p>
         </div>
         <div className="postImg">
-          <img src={profilePic} alt="postImg" />
-        </div>
-        <div className="bottom">
-          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
-          <Button label="Comment" icon={<FaComment />} className="tabs" />
-          <Button label="Share" icon={<FaShare />} className="tabs" />
-        </div>
-      </article>
-      <article className="container post">
-        <div className="top">
-          <p className="left">
-            <p className="profileImg">
-              <img src={profilePic} alt="profileImg" />
-            </p>
-            <p className="info">
-              <span>Vishal Karasi</span>
-              <span>3:54</span>
-            </p>
-          </p>
-          <p className="icon">
-            <FaUserMinus />
-          </p>
-        </div>
-        <div className="postImg">
-          <img src={profilePic} alt="postImg" />
+          <img src={ads} alt="postImg" />
         </div>
         <div className="bottom">
           <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
