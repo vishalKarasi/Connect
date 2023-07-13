@@ -1,0 +1,93 @@
+.login {
+  @extend .flex;
+  flex-direction: column;
+  gap: 1rem;
+  .form {
+    @extend .flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+
+    .inputBox {
+      .inputField {
+        @extend .flex;
+        position: relative;
+        border-radius: 0.25rem;
+
+        .input {
+          padding: 0.5rem 2rem 0.5rem 0.5rem;
+          box-shadow: 0 0 0.2rem var(--clr-font);
+          border-radius: 0.25rem;
+          width: 30ch;
+
+          &:is(:focus, :invalid) ~ .inputError {
+            display: block;
+          }
+
+          &:is(:focus, :valid) + .inputLabel {
+            padding: 0 0.5rem;
+            transform: scale(0.75);
+            top: -0.8em;
+            z-index: 99;
+            background-color: var(--clr-container);
+          }
+
+          &:focus + .inputLabel {
+            color: crimson;
+          }
+
+          &:valid + .inputLabel {
+            color: teal;
+          }
+
+          &:focus {
+            box-shadow: 0 0 0.2rem crimson;
+          }
+
+          &:valid {
+            box-shadow: 0 0 0.2rem teal;
+          }
+        }
+
+        .inputLabel {
+          position: absolute;
+          left: 0.5em;
+          pointer-events: none;
+          transition: all 0.5s linear;
+        }
+
+        .icon {
+          position: absolute;
+          right: 0.5em;
+        }
+      }
+
+      .inputError {
+        font-size: 0.8em;
+        color: crimson;
+        margin-top: 0.25em;
+      }
+    }
+
+    #profile {
+      display: none;
+      &:valid + .profileLabel {
+        box-shadow: 0 0 0.2rem teal;
+      }
+    }
+
+    .profileLabel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      box-shadow: 0 0 0.2rem var(--clr-font);
+      border-radius: 0.25;
+      padding: 0.5rem;
+
+      &:focus {
+        box-shadow: 0 0 0.2rem crimson;
+      }
+    }
+  }
+}

@@ -6,36 +6,61 @@ const initialState = {
   token: null,
   message: "",
   status: "idle",
+  isSignUp: false,
 };
 
 export const register = createAsyncThunk(
   "register",
   async (user, { rejectWithValue }) => {
-    const { data } = registerApi(user);
-    return data;
+    try {
+      console.log(user);
+      const { data } = registerApi(user);
+      console.log(data);
+      return data;
+    } catch (error) {
+      rejectWithValue(`${error}: Error during singup`);
+    }
   }
 );
 
 export const login = createAsyncThunk(
   "login",
   async (user, { rejectWithValue }) => {
-    const { data } = loginApi(user);
-    return data;
+    try {
+      console.log(user);
+      const { data } = loginApi(user);
+      console.log(data);
+      return data;
+    } catch (error) {
+      rejectWithValue(`${error}: Error during singin`);
+    }
   }
 );
 
 export const refreshToken = createAsyncThunk(
   "refreshToken",
   async (user, { rejectWithValue }) => {
-    const { data } = refreshTokenApi(user);
-    return data;
+    try {
+      const { data } = refreshTokenApi(user);
+      return data;
+    } catch (error) {
+      rejectWithValue(`${error}: Error during refreshing token`);
+    }
   }
 );
 
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logOut: (state) => {
+      state.USER = null;
+      state.token = null;
+      state.message = "";
+      state.status = "idle";
+      state.isSignUp = false;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state, action) => {
@@ -44,6 +69,7 @@ export const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.status = "success";
         state.message = action.payload.message;
+        state.isSignUp = true;
       })
       .addCase(register.rejected, (state, action) => {
         state.status = "error";

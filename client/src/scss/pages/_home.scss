@@ -2,4 +2,14 @@
   display: grid;
   grid-template-columns: 2.5fr 4fr 2.5fr;
   gap: 1rem;
+
+  .leftSection,
+  .rightSection {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

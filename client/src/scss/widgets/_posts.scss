@@ -1,9 +1,95 @@
-.posts {
-  @extend .flex;
+.middleSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
   gap: 1rem;
 
-  & > * {
+  .createPost {
     width: 100%;
+    @extend .flex;
+    gap: 1rem;
+    flex-direction: column;
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .bottom {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--clr-button);
+      padding: 1rem;
+      gap: 2rem;
+      border-radius: 0.25rem;
+
+      .input {
+        background-color: var(--clr-container);
+        flex-grow: 1;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+      }
+      input[type="file"] {
+        display: none;
+      }
+
+      .icon {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+
+  .post {
+    width: 100%;
+    @extend .flex;
+    gap: 1rem;
+    flex-direction: column;
+
+    .top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .left {
+        @extend .flex;
+        gap: 1rem;
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+      }
+    }
+
+    .postImg {
+      width: 100%;
+    }
+
+    .bottom {
+      width: 100%;
+      @extend .flex;
+      gap: 0.5rem;
+
+      button {
+        width: 100%;
+        padding-block: 0.5rem;
+        border-radius: none;
+        background-color: transparent;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: var(--clr-primary);
+        }
+        &:hover > .icon > svg {
+          fill: var(--clr-primary);
+        }
+      }
+    }
   }
 }

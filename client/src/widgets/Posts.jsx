@@ -1,148 +1,154 @@
 import React from "react";
 import {
-  FaBriefcase,
-  FaLinkedinIn,
-  FaPlusCircle,
-  FaLocationArrow,
-  FaTwitter,
+  FaComment,
+  FaImage,
   FaLink,
+  FaMicrophone,
+  FaShare,
+  FaThumbsUp,
+  FaUserMinus,
+  FaUserTag,
+  FaVideo,
 } from "react-icons/fa";
 import profilePic from "@assets/images/pfp.png";
+import Button from "@components/Button";
 
 function Posts() {
   return (
-    <div className="posts">
-      <div className="container">
-        <div>
-          <span>
-            <span className="profileImg">
-              <img src={profilePic} alt="" />
-            </span>
-            <div>
-              <h2>Vishal Karasi</h2>
-              <span className="label">Follower: 323</span>
-            </div>
-          </span>
-          <span className="icon">
-            <FaPlusCircle />
-          </span>
+    <>
+      <article className="container createPost">
+        <div className="top">
+          <p className="profileImg">
+            <img src={profilePic} alt="profileImg" />
+          </p>
+          <Button label="Audio" icon={<FaMicrophone />} className="tabs" />
+          <Button label="Video" icon={<FaVideo />} className="tabs" />
+          <Button label="Tag" icon={<FaLink />} className="tabs" />
+          <Button
+            label="Tag&nbsp;Friend"
+            icon={<FaUserTag />}
+            className="tabs"
+          />
         </div>
-        <div>
-          <p>
+
+        <div className="bottom">
+          <input
+            type="text"
+            placeholder="What's on your mind..."
+            autoComplete="off"
+            className="input"
+          />
+          <input
+            type="file"
+            id="createImg"
+            name="createPostImg"
+            required={true}
+          />
+          <label htmlFor="createImg">
             <span className="icon">
-              <FaLocationArrow />
+              <FaImage />
             </span>
-            <span className="label">My Location</span>
-          </p>
-          <p>
-            <span className="icon">
-              <FaBriefcase />
-            </span>
-            <span className="label">My Occupation</span>
-          </p>
+          </label>
         </div>
-        <div>
-          <p>
-            <span className="label">No of profile views</span>
-            <span className="viewCount">3434</span>
+      </article>
+
+      <article className="container post">
+        <div className="top">
+          <p className="left">
+            <p className="profileImg">
+              <img src={profilePic} alt="profileImg" />
+            </p>
+            <p className="info">
+              <span>Vishal Karasi</span>
+              <span>3:54</span>
+            </p>
           </p>
-          <p>
-            <span className="label">No of Likes</span>
-            <span className="likeCount">45354</span>
-          </p>
-        </div>
-        <div>
-          <h2>Social Profiles</h2>
-          <p>
-            <span className="socialContainer">
-              <span className="icon">
-                <FaTwitter />
-              </span>
-              <span>Twitter</span>
-            </span>
-            <span className="icon">
-              <FaLink />
-            </span>
-          </p>
-          <p>
-            <span className="socialContainer">
-              <span className="icon">
-                <FaLinkedinIn />
-              </span>
-              <span>LinkedIn</span>
-            </span>
-            <span className="icon">
-              <FaLink />
-            </span>
+          <p className="icon">
+            <FaUserMinus />
           </p>
         </div>
-      </div>
-      <div className="container">
-        <div>
-          <span>
-            <span className="profileImg">
-              <img src={profilePic} alt="" />
-            </span>
-            <div>
-              <h2>Vishal Karasi</h2>
-              <span className="label">Follower: 323</span>
-            </div>
-          </span>
-          <span className="icon">
-            <FaPlusCircle />
-          </span>
+        <div className="postImg">
+          <img src={profilePic} alt="postImg" />
         </div>
-        <div>
-          <p>
-            <span className="icon">
-              <FaLocationArrow />
-            </span>
-            <span className="label">My Location</span>
+        <div className="bottom">
+          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
+          <Button label="Comment" icon={<FaComment />} className="tabs" />
+          <Button label="Share" icon={<FaShare />} className="tabs" />
+        </div>
+      </article>
+      <article className="container post">
+        <div className="top">
+          <p className="left">
+            <p className="profileImg">
+              <img src={profilePic} alt="profileImg" />
+            </p>
+            <p className="info">
+              <span>Vishal Karasi</span>
+              <span>3:54</span>
+            </p>
           </p>
-          <p>
-            <span className="icon">
-              <FaBriefcase />
-            </span>
-            <span className="label">My Occupation</span>
+          <p className="icon">
+            <FaUserMinus />
           </p>
         </div>
-        <div>
-          <p>
-            <span className="label">No of profile views</span>
-            <span className="viewCount">3434</span>
+        <div className="postImg">
+          <img src={profilePic} alt="postImg" />
+        </div>
+        <div className="bottom">
+          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
+          <Button label="Comment" icon={<FaComment />} className="tabs" />
+          <Button label="Share" icon={<FaShare />} className="tabs" />
+        </div>
+      </article>
+      <article className="container post">
+        <div className="top">
+          <p className="left">
+            <p className="profileImg">
+              <img src={profilePic} alt="profileImg" />
+            </p>
+            <p className="info">
+              <span>Vishal Karasi</span>
+              <span>3:54</span>
+            </p>
           </p>
-          <p>
-            <span className="label">No of Likes</span>
-            <span className="likeCount">45354</span>
+          <p className="icon">
+            <FaUserMinus />
           </p>
         </div>
-        <div>
-          <h2>Social Profiles</h2>
-          <p>
-            <span className="socialContainer">
-              <span className="icon">
-                <FaTwitter />
-              </span>
-              <span>Twitter</span>
-            </span>
-            <span className="icon">
-              <FaLink />
-            </span>
+        <div className="postImg">
+          <img src={profilePic} alt="postImg" />
+        </div>
+        <div className="bottom">
+          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
+          <Button label="Comment" icon={<FaComment />} className="tabs" />
+          <Button label="Share" icon={<FaShare />} className="tabs" />
+        </div>
+      </article>
+      <article className="container post">
+        <div className="top">
+          <p className="left">
+            <p className="profileImg">
+              <img src={profilePic} alt="profileImg" />
+            </p>
+            <p className="info">
+              <span>Vishal Karasi</span>
+              <span>3:54</span>
+            </p>
           </p>
-          <p>
-            <span className="socialContainer">
-              <span className="icon">
-                <FaLinkedinIn />
-              </span>
-              <span>LinkedIn</span>
-            </span>
-            <span className="icon">
-              <FaLink />
-            </span>
+          <p className="icon">
+            <FaUserMinus />
           </p>
         </div>
-      </div>
-    </div>
+        <div className="postImg">
+          <img src={profilePic} alt="postImg" />
+        </div>
+        <div className="bottom">
+          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
+          <Button label="Comment" icon={<FaComment />} className="tabs" />
+          <Button label="Share" icon={<FaShare />} className="tabs" />
+        </div>
+      </article>
+    </>
   );
 }
 

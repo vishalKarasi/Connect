@@ -8,7 +8,7 @@ import {
   FaInfoCircle,
   FaMoon,
   FaSearch,
-  FaSignInAlt,
+  FaUserCircle,
   FaTimes,
 } from "react-icons/fa";
 import { toggleMode } from "@app/reducers/uiSlice";
@@ -73,7 +73,7 @@ function Header() {
           <FaInfoCircle />
         </button>
         <Link to="/login" className="login">
-          <FaSignInAlt />
+          <FaUserCircle />
         </Link>
       </div>
     </header>

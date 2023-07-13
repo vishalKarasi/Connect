@@ -27,7 +27,9 @@ body {
 
 input,
 textarea {
-  background-color: var(--clr-container);
+  font: $body-font;
+  color: var(--clr-font);
+  background-color: var(--clr-btn);
 }
 
 svg {
@@ -66,6 +68,11 @@ h1 {
 h2 {
   font: $sub-head-font;
   color: var(--clr-primary);
+}
+
+h3 {
+  font: 500 1rem/1 poppins;
+  width: 100%;
 }
 
 img {

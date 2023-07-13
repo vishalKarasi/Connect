@@ -6,7 +6,7 @@ import Profile from "@widgets/Profile";
 function Home() {
   return (
     <main className="home">
-      <section className="leftSecction">
+      <section className="leftSection">
         <Profile />
       </section>
       <section className="middleSection">

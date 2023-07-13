@@ -1,0 +1,29 @@
+.button {
+  @extend .flex;
+  font: $link-font;
+  color: var(--clr-font);
+  background-color: var(--clr-primary);
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: transparent;
+    scale: 0.8;
+    box-shadow: 0 0 0.1rem 0.1rem var(--clr-primary);
+  }
+}
+
+.tabs {
+  @extend .flex;
+  font: $link-font;
+  color: var(--clr-font);
+  background-color: var(--clr-button);
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.3s ease-in-out;
+  border-radius: 100vmax;
+
+  font-size: 0.95em;
+}

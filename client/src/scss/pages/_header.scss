@@ -1,4 +1,7 @@
 .header {
+  position: sticky;
+  inset: 0;
+  z-index: 99;
   background-color: var(--clr-container);
   display: flex;
   justify-content: space-between;
@@ -13,8 +16,8 @@
       gap: 0.25em;
 
       svg {
-        width: 2em;
-        height: 2em;
+        width: 2.2em;
+        height: 2.2em;
         fill: var(--clr-primary);
       }
 
@@ -49,8 +52,8 @@
 
     & > * {
       @extend .flex;
-      width: 1rem;
-      height: 1rem;
+      width: 1.2rem;
+      height: 1.2rem;
       background-color: transparent;
     }
   }

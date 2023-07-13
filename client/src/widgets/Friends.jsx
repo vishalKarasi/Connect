@@ -1,81 +1,100 @@
 import React from "react";
-import {
-  FaBriefcase,
-  FaLinkedinIn,
-  FaPlusCircle,
-  FaLocationArrow,
-  FaTwitter,
-  FaLink,
-} from "react-icons/fa";
+import { FaUserMinus } from "react-icons/fa";
 import profilePic from "@assets/images/pfp.png";
+import adsPic from "@assets/images/ads.jpg";
 
 function Friends() {
   return (
-    <div className="container">
-      <div>
-        <span>
-          <span className="profileImg">
-            <img src={profilePic} alt="" />
-          </span>
-          <div>
-            <h2>Vishal Karasi</h2>
-            <span className="label">Follower: 323</span>
-          </div>
+    <>
+      <section className="container ads">
+        <h3>Sponsored</h3>
+        <span className="adsImg">
+          <img src={adsPic} alt="" />
         </span>
-        <span className="icon">
-          <FaPlusCircle />
-        </span>
-      </div>
-      <div>
         <p>
-          <span className="icon">
-            <FaLocationArrow />
-          </span>
-          <span className="label">My Location</span>
+          <span className="adsTitle">PUMA</span>
+          <span className="price">20$</span>
         </p>
-        <p>
-          <span className="icon">
-            <FaBriefcase />
-          </span>
-          <span className="label">My Occupation</span>
+        <p className="adsDes">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+          soluta doloribus, itaque sit id nulla!
         </p>
-      </div>
-      <div>
-        <p>
-          <span className="label">No of profile views</span>
-          <span className="viewCount">3434</span>
-        </p>
-        <p>
-          <span className="label">No of Likes</span>
-          <span className="likeCount">45354</span>
-        </p>
-      </div>
-      <div>
-        <h2>Social Profiles</h2>
-        <p>
-          <span className="socialContainer">
-            <span className="icon">
-              <FaTwitter />
+      </section>
+
+      <section className="friends container">
+        <h2>Friends List</h2>
+        <article>
+          <span>
+            <span className="profileImg">
+              <img src={profilePic} alt="" />
             </span>
-            <span>Twitter</span>
+            <i>
+              <h3>Vishal Karasi</h3>
+              <span className="label theme">Follower: 323</span>
+            </i>
           </span>
           <span className="icon">
-            <FaLink />
+            <FaUserMinus />
           </span>
-        </p>
-        <p>
-          <span className="socialContainer">
-            <span className="icon">
-              <FaLinkedinIn />
+        </article>
+        <article>
+          <span>
+            <span className="profileImg">
+              <img src={profilePic} alt="" />
             </span>
-            <span>LinkedIn</span>
+            <i>
+              <h3>Vishal Karasi</h3>
+              <span className="label theme">Follower: 323</span>
+            </i>
           </span>
           <span className="icon">
-            <FaLink />
+            <FaUserMinus />
           </span>
-        </p>
-      </div>
-    </div>
+        </article>
+        <article>
+          <span>
+            <span className="profileImg">
+              <img src={profilePic} alt="" />
+            </span>
+            <i>
+              <h3>Vishal Karasi</h3>
+              <span className="label theme">Follower: 323</span>
+            </i>
+          </span>
+          <span className="icon">
+            <FaUserMinus />
+          </span>
+        </article>
+        <article>
+          <span>
+            <span className="profileImg">
+              <img src={profilePic} alt="" />
+            </span>
+            <i>
+              <h3>Vishal Karasi</h3>
+              <span className="label theme">Follower: 323</span>
+            </i>
+          </span>
+          <span className="icon">
+            <FaUserMinus />
+          </span>
+        </article>
+        <article>
+          <span>
+            <span className="profileImg">
+              <img src={profilePic} alt="" />
+            </span>
+            <i>
+              <h3>Vishal Karasi</h3>
+              <span className="label theme">Follower: 323</span>
+            </i>
+          </span>
+          <span className="icon">
+            <FaUserMinus />
+          </span>
+        </article>
+      </section>
+    </>
   );
 }
 

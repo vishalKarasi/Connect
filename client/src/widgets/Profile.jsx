@@ -2,62 +2,62 @@ import React from "react";
 import {
   FaBriefcase,
   FaLinkedinIn,
-  FaPlusCircle,
-  FaLocationArrow,
+  FaMapMarkerAlt,
   FaTwitter,
   FaLink,
+  FaUserEdit,
 } from "react-icons/fa";
 import profilePic from "@assets/images/pfp.png";
 
 function Profile() {
   return (
-    <div className="container">
+    <article className="container profile sticky">
       <div>
         <span>
           <span className="profileImg">
             <img src={profilePic} alt="" />
           </span>
-          <div>
-            <h2>Vishal Karasi</h2>
-            <span className="label">Follower: 323</span>
-          </div>
+          <i>
+            <h3>Vishal Karasi</h3>
+            <span className="label theme">Follower: 323</span>
+          </i>
         </span>
         <span className="icon">
-          <FaPlusCircle />
+          <FaUserEdit />
         </span>
       </div>
       <div>
         <p>
           <span className="icon">
-            <FaLocationArrow />
+            <FaMapMarkerAlt />
           </span>
-          <span className="label">My Location</span>
+          <span className="label grow">My Location</span>
         </p>
         <p>
           <span className="icon">
             <FaBriefcase />
           </span>
-          <span className="label">My Occupation</span>
+          <span className="label grow">My Occupation</span>
         </p>
       </div>
       <div>
         <p>
           <span className="label">No of profile views</span>
-          <span className="viewCount">3434</span>
+          <span className="label theme">3434</span>
         </p>
         <p>
           <span className="label">No of Likes</span>
-          <span className="likeCount">45354</span>
+          <span className="label theme">45354</span>
         </p>
       </div>
       <div>
-        <h2>Social Profiles</h2>
+        <h3>Social Profiles</h3>
         <p>
           <span className="socialContainer">
             <span className="icon">
               <FaTwitter />
             </span>
-            <span>Twitter</span>
+            <span className="label">Twitter</span>
           </span>
           <span className="icon">
             <FaLink />
@@ -68,14 +68,14 @@ function Profile() {
             <span className="icon">
               <FaLinkedinIn />
             </span>
-            <span>LinkedIn</span>
+            <span className="label">LinkedIn</span>
           </span>
           <span className="icon">
             <FaLink />
           </span>
         </p>
       </div>
-    </div>
+    </article>
   );
 }
 
