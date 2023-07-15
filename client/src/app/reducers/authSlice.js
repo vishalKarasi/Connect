@@ -3,51 +3,40 @@ import { loginApi, refreshTokenApi, registerApi } from "@app/api/authApi";
 
 const initialState = {
   USER: null,
-  token: null,
+  accessToken: null,
   message: "",
   status: "idle",
-  isSignUp: false,
+  isRegister: false,
 };
 
-export const register = createAsyncThunk(
-  "register",
-  async (user, { rejectWithValue }) => {
-    try {
-      console.log(user);
-      const { data } = registerApi(user);
-      console.log(data);
-      return data;
-    } catch (error) {
-      rejectWithValue(`${error}: Error during singup`);
-    }
+export const register = createAsyncThunk("auth/register", async (user) => {
+  try {
+    const { data } = await registerApi(user);
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
   }
-);
+});
 
-export const login = createAsyncThunk(
-  "login",
-  async (user, { rejectWithValue }) => {
-    try {
-      console.log(user);
-      const { data } = loginApi(user);
-      console.log(data);
-      return data;
-    } catch (error) {
-      rejectWithValue(`${error}: Error during singin`);
-    }
+export const login = createAsyncThunk("auth/login", async (user) => {
+  try {
+    const { data } = await loginApi(user);
+    console.log(data);
+    return data;
+  } catch (error) {
+    throw error;
   }
-);
+});
 
-export const refreshToken = createAsyncThunk(
-  "refreshToken",
-  async (user, { rejectWithValue }) => {
-    try {
-      const { data } = refreshTokenApi(user);
-      return data;
-    } catch (error) {
-      rejectWithValue(`${error}: Error during refreshing token`);
-    }
+export const refreshToken = createAsyncThunk("auth/refreshToken", async () => {
+  try {
+    const { data } = await refreshTokenApi();
+    return data;
+  } catch (error) {
+    throw error;
   }
-);
+});
 
 export const authSlice = createSlice({
   name: "auth",
@@ -55,10 +44,10 @@ export const authSlice = createSlice({
   reducers: {
     logOut: (state) => {
       state.USER = null;
-      state.token = null;
+      state.accessToken = null;
       state.message = "";
       state.status = "idle";
-      state.isSignUp = false;
+      state.isRegister = false;
     },
   },
   extraReducers: (builder) => {
@@ -69,11 +58,11 @@ export const authSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         state.status = "success";
         state.message = action.payload.message;
-        state.isSignUp = true;
+        state.isRegister = true;
       })
       .addCase(register.rejected, (state, action) => {
         state.status = "error";
-        state.error = action.payload.message;
+        state.message = action.payload.message;
       })
       .addCase(login.pending, (state, action) => {
         state.status = "loading";
@@ -81,7 +70,7 @@ export const authSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         state.status = "success";
         state.USER = action.payload.user;
-        state.token = action.payload.token;
+        state.accessToken = action.payload.accessToken;
       })
       .addCase(login.rejected, (state, action) => {
         state.status = "error";
@@ -92,7 +81,7 @@ export const authSlice = createSlice({
       })
       .addCase(refreshToken.fulfilled, (state, action) => {
         state.status = "success";
-        state.token = action.payload.token;
+        state.accessToken = action.payload.accessToken;
       })
       .addCase(refreshToken.rejected, (state, action) => {
         state.status = "error";

@@ -1,17 +1,17 @@
-import { api } from "./baseApi";
+import privateApi, { publicApi } from "./baseApi";
 
 export const createPostApi = (post) => {
-  return api.post("/post/", post);
+  return privateApi.post("/post/", post);
 };
 
 export const getFeedPostsApi = () => {
-  return api.get("/post/");
+  return publicApi.get("/post/");
 };
 
 export const getUserPostsApi = (userId) => {
-  return api.get(`/post/${userId}`);
+  return publicApi.get(`/post/${userId}`);
 };
 
 export const likePost = (postId) => {
-  return api.patch(`/post/${postId}`);
+  return privateApi.patch(`/post/${postId}`);
 };

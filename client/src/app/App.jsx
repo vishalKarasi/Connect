@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@pages/Header";
 import Home from "@pages/Home";
 import NotFound from "@pages/NotFound";
-import Login from "@pages/Login";
 import { useDispatch } from "react-redux";
 import { getInitialMode, toggleMode } from "./reducers/uiSlice";
+import Auth from "@pages/Login";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/notfound" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

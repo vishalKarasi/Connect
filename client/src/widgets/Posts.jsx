@@ -55,7 +55,7 @@ function Posts() {
 
       <article className="container post">
         <div className="top">
-          <p className="left">
+          <div className="left">
             <p className="profileImg">
               <img src={profilePic} alt="profileImg" />
             </p>
@@ -63,7 +63,7 @@ function Posts() {
               <span>Vishal Karasi</span>
               <span>3:54</span>
             </p>
-          </p>
+          </div>
           <p className="icon">
             <FaUserMinus />
           </p>
@@ -79,7 +79,7 @@ function Posts() {
       </article>
       <article className="container post">
         <div className="top">
-          <p className="left">
+          <div className="left">
             <p className="profileImg">
               <img src={profilePic} alt="profileImg" />
             </p>
@@ -87,31 +87,7 @@ function Posts() {
               <span>Vishal Karasi</span>
               <span>3:54</span>
             </p>
-          </p>
-          <p className="icon">
-            <FaUserMinus />
-          </p>
-        </div>
-        <div className="postImg">
-          <img src={ads} alt="postImg" />
-        </div>
-        <div className="bottom">
-          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
-          <Button label="Comment" icon={<FaComment />} className="tabs" />
-          <Button label="Share" icon={<FaShare />} className="tabs" />
-        </div>
-      </article>
-      <article className="container post">
-        <div className="top">
-          <p className="left">
-            <p className="profileImg">
-              <img src={profilePic} alt="profileImg" />
-            </p>
-            <p className="info">
-              <span>Vishal Karasi</span>
-              <span>3:54</span>
-            </p>
-          </p>
+          </div>
           <p className="icon">
             <FaUserMinus />
           </p>

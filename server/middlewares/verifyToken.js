@@ -2,7 +2,7 @@ export const verifyToken = async (req, res, next) => {
   try {
     let accessToken = req.header("Authorization");
     if (!accessToken) {
-      return res.status(401).send("Access Denied");
+      return res.status(403).json({ message: "Forbiden" });
     }
     if (accessToken.startsWith("Bearer ")) {
       accessToken = accessToken.slice(7, accessToken.length).trimLeft();

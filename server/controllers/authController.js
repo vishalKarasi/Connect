@@ -5,6 +5,7 @@ import { User } from "../models/UserModel.js";
 // user registration
 export const register = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { password } = req.body;
     const salt = await bcrypt.genSalt();
     const hashPassword = await bcrypt.hash(password, salt);
@@ -14,7 +15,7 @@ export const register = async (req, res, next) => {
       views: Math.floor(Math.random() * 1000),
       likes: Math.floor(Math.random() * 1000),
     });
-    const saveUser = await newUser.save();
+    await newUser.save();
     res.status(201).json({ message: "Singup successful" });
   } catch (error) {
     next(error);
@@ -24,6 +25,7 @@ export const register = async (req, res, next) => {
 // user login
 export const login = async (req, res, next) => {
   try {
+    console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {

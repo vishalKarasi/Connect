@@ -18,9 +18,9 @@ import userRoute from "./routes/userRoute.js";
 import postRoute from "./routes/postRoute.js";
 
 // middlewares
+app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
-app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "10mb", extended: true }));

@@ -72,7 +72,7 @@ function Header() {
         <button>
           <FaInfoCircle />
         </button>
-        <Link to="/login" className="login">
+        <Link to="/auth" className="login">
           <FaUserCircle />
         </Link>
       </div>

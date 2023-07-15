@@ -2,15 +2,24 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshToken } from "@app/reducers/authSlice";
 
-export const api = axios.create({
-  baseURL: "https://localhost/5000",
+const BASE_URL = "http://localhost:5000";
+
+export const publicApi = axios.create({
+  baseURL: BASE_URL,
 });
 
-api.interceptors.request.use(
+export const privateApi = axios.create({
+  baseURL: BASE_URL,
+  headers: { "Content-Type": "application/json" },
+  withCredentials: true,
+});
+
+const reqInterceptor = privateApi.interceptors.request.use(
   (config) => {
-    const { token } = useSelector((state) => state.auth);
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+    const { accessToken } = useSelector((state) => state.auth);
+    console.log(accessToken);
+    if (accessToken) {
+      config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
   },
@@ -19,7 +28,7 @@ api.interceptors.request.use(
   }
 );
 
-api.interceptors.response.use(
+const resInterceptor = privateApi.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -27,12 +36,14 @@ api.interceptors.response.use(
     const originalRequest = error.config;
     const dispatch = useDispatch();
 
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if (error?.response?.status === 403 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const { accessToken } = dispatch(refreshToken);
-        originalRequest.headers["Authorization"] = `Bearer ${accessToken}`;
-        return api(originalRequest);
+        dispatch(refreshToken());
+        const { accessToken } = useSelector((state) => state.auth);
+        console.log(accessToken);
+        originalRequest.headers.Authorization = `Bearer ${accessToken}`;
+        return privateApi(originalRequest);
       } catch (error) {
         console.log(error.message);
       }
@@ -40,3 +51,8 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+privateApi.interceptors.request.eject(reqInterceptor);
+privateApi.interceptors.request.eject(resInterceptor);
+
+export default privateApi;

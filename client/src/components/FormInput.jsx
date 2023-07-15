@@ -14,7 +14,7 @@ function FormInput(props) {
           onFocus={() => setIsError(true)}
           onBlur={() => setIsError(false)}
           required={true}
-          autoComplete="off"
+          // autoComplete="off"
           {...input}
         />
         {label && <label className="inputLabel">{label}</label>}

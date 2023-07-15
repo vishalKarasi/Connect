@@ -4,7 +4,7 @@ import userSlice from "./userSlice";
 import postSlice from "./postSlice";
 import uiSlice from "./uiSlice";
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     ui: uiSlice,
     auth: authSlice,
@@ -12,3 +12,5 @@ export const store = configureStore({
     post: postSlice,
   },
 });
+
+export default store;

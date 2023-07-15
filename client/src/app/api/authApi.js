@@ -1,13 +1,13 @@
-import { api } from "./baseApi";
+import privateApi, { publicApi } from "./baseApi";
 
 export const registerApi = (user) => {
-  return api.post("/auth/register", user);
+  return publicApi.post("/auth/register", user);
 };
 
 export const loginApi = (user) => {
-  return api.get("/auth/login", user);
+  return publicApi.post("/auth/login", user);
 };
 
 export const refreshTokenApi = () => {
-  return api.get("/auth/refresh");
+  return privateApi.get("/auth/refresh");
 };
