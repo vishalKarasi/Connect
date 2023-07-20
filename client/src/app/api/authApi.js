@@ -1,13 +1,13 @@
-import privateApi, { publicApi } from "./baseApi";
+import { publicAxios, cookieAxios } from "./baseApi";
 
 export const registerApi = (user) => {
-  return publicApi.post("/auth/register", user);
+  return publicAxios.post("/auth/register", user);
 };
 
 export const loginApi = (user) => {
-  return publicApi.post("/auth/login", user);
+  return cookieAxios.post("/auth/login", user);
 };
 
 export const refreshTokenApi = () => {
-  return privateApi.get("/auth/refresh");
+  return cookieAxios.get("/auth/refresh");
 };

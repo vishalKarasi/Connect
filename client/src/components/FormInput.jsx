@@ -1,15 +1,22 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 
 function FormInput(props) {
-  const { label, icon, errorMessage, onChange, ...input } = props;
+  const { label, icon, errorMessage, ...input } = props;
   const [isError, setIsError] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (input.name === "username") {
+      inputRef.current.focus();
+    }
+  }, [input.name]);
 
   return (
     <div className="inputBox">
       <div className="inputField">
         <input
           className="input"
-          onChange={onChange}
+          ref={inputRef}
           onInvalid={() => setIsError(true)}
           onFocus={() => setIsError(true)}
           onBlur={() => setIsError(false)}

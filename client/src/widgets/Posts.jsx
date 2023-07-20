@@ -17,7 +17,7 @@ import Button from "@components/Button";
 function Posts() {
   return (
     <>
-      <article className="container createPost">
+      <article className="createPost">
         <div className="top">
           <p className="profileImg">
             <img src={profilePic} alt="profileImg" />
@@ -53,31 +53,7 @@ function Posts() {
         </div>
       </article>
 
-      <article className="container post">
-        <div className="top">
-          <div className="left">
-            <p className="profileImg">
-              <img src={profilePic} alt="profileImg" />
-            </p>
-            <p className="info">
-              <span>Vishal Karasi</span>
-              <span>3:54</span>
-            </p>
-          </div>
-          <p className="icon">
-            <FaUserMinus />
-          </p>
-        </div>
-        <div className="postImg">
-          <img src={ads} alt="postImg" />
-        </div>
-        <div className="bottom">
-          <Button label="Like" icon={<FaThumbsUp />} className="tabs" />
-          <Button label="Comment" icon={<FaComment />} className="tabs" />
-          <Button label="Share" icon={<FaShare />} className="tabs" />
-        </div>
-      </article>
-      <article className="container post">
+      <article className="post">
         <div className="top">
           <div className="left">
             <p className="profileImg">

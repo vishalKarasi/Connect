@@ -1,5 +1,5 @@
 .profile {
-  @extend .flex;
+  @extend .flex, .container;
   flex-direction: column;
   width: 100%;
 
@@ -10,11 +10,7 @@
 
   div,
   p {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
+    @extend .flex-between;
   }
 
   & > *:not(:first-child) {
@@ -22,14 +18,7 @@
   }
 
   span {
-    display: flex;
+    @extend .flex;
     justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .label {
-    font-size: 0.8em;
-    font-family: ubuntu;
   }
 }

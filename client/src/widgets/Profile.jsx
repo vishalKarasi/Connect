@@ -11,7 +11,7 @@ import profilePic from "@assets/images/pfp.png";
 
 function Profile() {
   return (
-    <article className="container profile sticky">
+    <article className="profile sticky">
       <div>
         <span>
           <span className="profileImg">

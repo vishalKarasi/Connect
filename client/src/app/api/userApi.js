@@ -1,13 +1,13 @@
-import privateApi, { publicApi } from "./baseApi";
+import { publicAxios, privateAxios } from "./baseApi";
 
 export const getUserApi = (userId) => {
-  return publicApi.get(`/user/${userId}`);
+  return publicAxios.get(`/user/${userId}`);
 };
 
 export const getUserFriendApi = (userId) => {
-  return publicApi.get(`/user/${userId}`);
+  return publicAxios.get(`/user/${userId}`);
 };
 
 export const addRemoveUserApi = (userId, friendId) => {
-  return privateApi.patch(`/user/${userId}/${friendId}`);
+  return privateAxios.patch(`/user/${userId}/${friendId}`);
 };

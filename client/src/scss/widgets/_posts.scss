@@ -1,37 +1,25 @@
 .middleSection {
-  display: flex;
+  @extend .flex;
   justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
-  gap: 1rem;
 
   .createPost {
-    width: 100%;
-    @extend .flex;
-    gap: 1rem;
+    @extend .flex, .container;
     flex-direction: column;
+    width: 100%;
 
     .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
+      @extend .flex-between;
     }
     .bottom {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @extend .flex-between;
       background-color: var(--clr-button);
       padding: 1rem;
-      gap: 2rem;
       border-radius: 0.25rem;
 
       .input {
-        background-color: var(--clr-container);
+        @extend .container;
         flex-grow: 1;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
       }
       input[type="file"] {
         display: none;
@@ -45,25 +33,18 @@
   }
 
   .post {
-    width: 100%;
-    @extend .flex;
-    gap: 0.5rem;
+    @extend .flex, .container;
     flex-direction: column;
 
     .top {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @extend .flex-between;
 
       .left {
         @extend .flex;
-        gap: 1rem;
 
         .info {
           display: flex;
           flex-direction: column;
-          gap: 0.25rem;
         }
       }
     }
@@ -78,23 +59,7 @@
     }
 
     .bottom {
-      width: 100%;
-      @extend .flex;
-      gap: 0.5rem;
-
-      button {
-        width: 100%;
-        padding-block: 0.5rem;
-        border-radius: none;
-        background-color: transparent;
-        transition: all 0.2s ease-in-out;
-        &:hover {
-          color: var(--clr-primary);
-        }
-        &:hover > .icon > svg {
-          fill: var(--clr-primary);
-        }
-      }
+      @extend .flex-between;
     }
   }
 }

@@ -6,8 +6,8 @@ import mongoose from "mongoose";
 import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
+// import path from "path";
+// import { fileURLToPath } from "url";
 import { errorHandler } from "./middlewares/errorHandler.js";
 const app = express();
 dotenv.config();
@@ -18,9 +18,9 @@ import userRoute from "./routes/userRoute.js";
 import postRoute from "./routes/postRoute.js";
 
 // middlewares
-app.use(helmet());
 app.use(express.json());
 app.use(cookieParser());
+app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
@@ -32,9 +32,10 @@ app.use(
     credentials: true,
   })
 );
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+app.use("/uploads", express.static("uploads"));
 app.use(errorHandler);
 
 // routes

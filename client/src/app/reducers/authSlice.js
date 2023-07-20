@@ -2,11 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { loginApi, refreshTokenApi, registerApi } from "@app/api/authApi";
 
 const initialState = {
-  USER: null,
+  isRegister: false,
+  userId: null,
   accessToken: null,
   message: "",
   status: "idle",
-  isRegister: false,
 };
 
 export const register = createAsyncThunk("auth/register", async (user) => {
@@ -22,7 +22,6 @@ export const register = createAsyncThunk("auth/register", async (user) => {
 export const login = createAsyncThunk("auth/login", async (user) => {
   try {
     const { data } = await loginApi(user);
-    console.log(data);
     return data;
   } catch (error) {
     throw error;
@@ -42,52 +41,57 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    toggleForm: (state) => {
+      state.isRegister = !state.isRegister;
+    },
+
     logOut: (state) => {
-      state.USER = null;
+      state.isRegister = false;
       state.accessToken = null;
       state.message = "";
       state.status = "idle";
-      state.isRegister = false;
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(register.pending, (state, action) => {
+      .addCase(register.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state, { payload }) => {
         state.status = "success";
-        state.message = action.payload.message;
         state.isRegister = true;
+        state.message = payload.message;
       })
-      .addCase(register.rejected, (state, action) => {
+      .addCase(register.rejected, (state, { payload }) => {
         state.status = "error";
-        state.message = action.payload.message;
+        state.message = payload.message;
       })
-      .addCase(login.pending, (state, action) => {
+      .addCase(login.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(login.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, { payload }) => {
         state.status = "success";
-        state.USER = action.payload.user;
-        state.accessToken = action.payload.accessToken;
+        state.userId = payload.userId;
+        state.accessToken = payload.accessToken;
+        state.message = payload.message;
       })
-      .addCase(login.rejected, (state, action) => {
+      .addCase(login.rejected, (state, { payload }) => {
         state.status = "error";
-        state.message = action.payload.message;
+        state.message = payload.message;
       })
-      .addCase(refreshToken.pending, (state, action) => {
+      .addCase(refreshToken.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(refreshToken.fulfilled, (state, action) => {
+      .addCase(refreshToken.fulfilled, (state, { payload }) => {
         state.status = "success";
-        state.accessToken = action.payload.accessToken;
+        state.accessToken = payload.accessToken;
       })
-      .addCase(refreshToken.rejected, (state, action) => {
+      .addCase(refreshToken.rejected, (state, { payload }) => {
         state.status = "error";
-        state.message = action.payload.message;
+        state.message = payload.message;
       });
   },
 });
 
+export const { toggleForm, logout } = authSlice.actions;
 export default authSlice.reducer;

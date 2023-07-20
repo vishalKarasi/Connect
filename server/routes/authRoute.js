@@ -5,7 +5,7 @@ import { parserImg } from "../middlewares/multer.js";
 const router = express.Router();
 
 router.post("/register", parserImg.single("profilePic"), register);
-router.post("/login", login);
+router.post("/login", parserImg.none(), login);
 router.get("/refresh", refresh);
 
 export default router;

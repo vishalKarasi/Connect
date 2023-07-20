@@ -2,41 +2,20 @@
   @extend .flex;
   flex-direction: column;
   width: 100%;
-  article {
+  div {
+    @extend .flex-between;
     padding: 0.5rem;
     border-bottom: 0.2rem solid var(--clr-button);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
   }
 
   span {
-    display: flex;
+    @extend .flex;
     justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .profileImg {
-    width: 2.2rem;
-    height: 2.2rem;
-    border-radius: 50%;
-    img {
-      border-radius: 50%;
-    }
-  }
-
-  .label {
-    font-size: 0.8em;
-    font-family: ubuntu;
   }
 }
 .ads {
-  @extend .flex;
+  @extend .flex, .container;
   flex-direction: column;
-  gap: 0.5rem;
 
   img {
     aspect-ratio: 3/2;
@@ -48,9 +27,6 @@
   }
 
   p {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    @extend .flex-between;
   }
 }

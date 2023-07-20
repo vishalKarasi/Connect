@@ -4,17 +4,21 @@ import { refreshToken } from "@app/reducers/authSlice";
 
 const BASE_URL = "http://localhost:5000";
 
-export const publicApi = axios.create({
+export const publicAxios = axios.create({
   baseURL: BASE_URL,
 });
 
-export const privateApi = axios.create({
+export const privateAxios = axios.create({
   baseURL: BASE_URL,
   headers: { "Content-Type": "application/json" },
+});
+
+export const cookieAxios = axios.create({
+  baseURL: BASE_URL,
   withCredentials: true,
 });
 
-const reqInterceptor = privateApi.interceptors.request.use(
+const reqInterceptor = privateAxios.interceptors.request.use(
   (config) => {
     const { accessToken } = useSelector((state) => state.auth);
     console.log(accessToken);
@@ -28,7 +32,7 @@ const reqInterceptor = privateApi.interceptors.request.use(
   }
 );
 
-const resInterceptor = privateApi.interceptors.response.use(
+const resInterceptor = privateAxios.interceptors.response.use(
   (response) => {
     return response;
   },
@@ -43,7 +47,7 @@ const resInterceptor = privateApi.interceptors.response.use(
         const { accessToken } = useSelector((state) => state.auth);
         console.log(accessToken);
         originalRequest.headers.Authorization = `Bearer ${accessToken}`;
-        return privateApi(originalRequest);
+        return privateAxios(originalRequest);
       } catch (error) {
         console.log(error.message);
       }
@@ -52,7 +56,5 @@ const resInterceptor = privateApi.interceptors.response.use(
   }
 );
 
-privateApi.interceptors.request.eject(reqInterceptor);
-privateApi.interceptors.request.eject(resInterceptor);
-
-export default privateApi;
+privateAxios.interceptors.request.eject(reqInterceptor);
+privateAxios.interceptors.request.eject(resInterceptor);

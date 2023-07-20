@@ -6,7 +6,7 @@ import adsPic from "@assets/images/ads.jpg";
 function Friends() {
   return (
     <>
-      <section className="container ads">
+      <section className="ads">
         <h3>Sponsored</h3>
         <span className="adsImg">
           <img src={adsPic} alt="" />
@@ -21,9 +21,9 @@ function Friends() {
         </p>
       </section>
 
-      <section className="friends container">
+      <section className="friends">
         <h2>Friends List</h2>
-        <article>
+        <div>
           <span>
             <span className="profileImg">
               <img src={profilePic} alt="" />
@@ -36,8 +36,8 @@ function Friends() {
           <span className="icon">
             <FaUserMinus />
           </span>
-        </article>
-        <article>
+        </div>
+        <div>
           <span>
             <span className="profileImg">
               <img src={profilePic} alt="" />
@@ -50,8 +50,8 @@ function Friends() {
           <span className="icon">
             <FaUserMinus />
           </span>
-        </article>
-        <article>
+        </div>
+        <div>
           <span>
             <span className="profileImg">
               <img src={profilePic} alt="" />
@@ -64,8 +64,8 @@ function Friends() {
           <span className="icon">
             <FaUserMinus />
           </span>
-        </article>
-        <article>
+        </div>
+        <div>
           <span>
             <span className="profileImg">
               <img src={profilePic} alt="" />
@@ -78,8 +78,8 @@ function Friends() {
           <span className="icon">
             <FaUserMinus />
           </span>
-        </article>
-        <article>
+        </div>
+        <div>
           <span>
             <span className="profileImg">
               <img src={profilePic} alt="" />
@@ -92,7 +92,7 @@ function Friends() {
           <span className="icon">
             <FaUserMinus />
           </span>
-        </article>
+        </div>
       </section>
     </>
   );
